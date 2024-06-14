@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @this_photo = Photo.where({ :id => params[:id] })
+    @this_photo = Photo.where({ :id => params[:id] })[0]
 
     render({ :template => "photo_templates/show" })
   end
