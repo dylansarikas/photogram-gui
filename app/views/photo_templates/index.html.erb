@@ -1,1 +1,52 @@
-hi
+<h1>List of photos</h1>
+
+<p>add iamge</p>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Posted
+    </th>
+
+    <th></th>
+  </tr>
+
+  <% @all_photos.each do |photo| %>
+
+    <tr>
+      <td>
+        <img src="<%= photo.image %>" alt="photo">
+      </td>
+
+      <td>
+        <%= photo.caption %>
+      </td>
+
+      <td>
+        <%= photo.poster.username %>
+      </td>
+
+      <td>
+        <%= photo.created_at %>
+      </td>
+
+      <td>
+        Show details
+      </td>
+    </tr>
+
+  <% end %>
+
+</table>
