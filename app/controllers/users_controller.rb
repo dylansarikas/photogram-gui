@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @this_user = User.where({ :username => params[:username] })[0]
 
     render({ :template => "user_templates/show"})
   end

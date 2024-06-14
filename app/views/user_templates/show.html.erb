@@ -1,1 +1,70 @@
+<h1>  <%= @this_user.username %> </h1>
 
+<dl>
+  <dt>
+    ID
+  </dt>
+  <dd>
+    <%= @this_user.id %>
+  </dd>
+  <dt>
+    Edit user
+  </dt>
+  <dl>
+  <dd>
+    right here
+    <button>Update User</button>
+  </dd>
+</dl>
+
+<h2>Own Photos</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+    <th>
+      Posted
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @this_user.own_photos.each do |photo|%>
+    <tr>
+      <td>
+       <img src="<%= photo.image %>" alt="photo">
+      </td>
+
+      <td>
+        <%= @this_user.username %>
+      </td>
+
+      <td>
+        <%= photo.caption %>
+      </td>
+
+      <td>
+        <%= photo.created_at %>
+      </td>
+
+      <td>
+        <a href="/phtotos/<%= photo.id %>">Show details</a>
+      </td>
+    </tr>
+  <% end %>
+  
+
+
+</table>
