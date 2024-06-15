@@ -10,4 +10,21 @@ class UsersController < ApplicationController
 
     render({ :template => "user_templates/show"})
   end
+  
+  def create
+    @new_user = User.new
+    @new_user.username = params[:username]
+
+    @new_user.save
+
+    redirect_to("/users")
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.username = params[:username]
+    user.save
+
+    redirect_to("/users/#{user.username}")
+  end
 end
