@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
     )
     photo.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{photo.id}")
 
   end
 
