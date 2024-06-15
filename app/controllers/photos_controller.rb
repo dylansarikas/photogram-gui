@@ -10,4 +10,20 @@ class PhotosController < ApplicationController
 
     render({ :template => "photo_templates/show" })
   end
+
+  def create
+    # photo = Photo.new(
+    #   image: params[:image],
+    #   caption: params[:caption],
+    #   owner_id: params[:owner_id]
+    # )
+    photo = Photo.new
+    photo.image = params[:image]
+    photo.caption = params[:caption]
+    photo.owner_id = params[:owner_id]
+    photo.save
+
+    redirect_to("/photos")
+
+  end
 end
