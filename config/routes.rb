@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   get "/users" => "users#index"
   get "/users/:username" => "users#show"
   post "/users" => "users#create"
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   post "/photos" => "photos#create"
   post "/photos/:id" => "photos#update"
   get "/photos_delete/:id" => "photos#destroy"
+
+  post "/comments" => "comments#create"
 end
