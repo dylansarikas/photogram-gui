@@ -26,4 +26,20 @@ class PhotosController < ApplicationController
     redirect_to("/photos")
 
   end
+
+  def update
+    photo = Photo.find(params[:id])
+    photo.image = params[:image]
+    photo.caption = params[:caption]
+    photo.save
+
+    redirect_to("/photos/#{params[:id]}")
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.delete
+
+    redirect_to("/photos")
+  end
 end
